@@ -1,20 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <sities>
 	<site>
-		<name>videoweed</name>
-		<url>http://www.videoweed.es</url>
-	</site>
-	<site>
-		<name>novamov</name>
-		<url>http://www.novamov.com</url>
-	</site>
-	<site>
 		<name>putlocker</name>
 		<url>http://www.putlocker.com</url>
 	</site>
 	<site>
-		<name>novamov</name>
-		<url>http://www.novamov.com</url>
+		<name>nowvideo</name>
+		<url>http://www.nowvideo.eu</url>
+	</site>
+	<site>
+		<name>videopremium</name>
+		<url>http://videopremium.net</url>
 	</site>
 
 </sities>
