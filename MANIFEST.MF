@@ -1,0 +1,6 @@
+Manifest-Version: 1.0
+Rsrc-Class-Path: ./ lib/htmllexer.jar lib/htmlparser.jar lib/forms-1.3.0.jar
+Class-Path: .
+Rsrc-Main-Class: core.SearchEngine
+Main-Class: org.eclipse.jdt.internal.jarinjarloader.JarRsrcLoader
+

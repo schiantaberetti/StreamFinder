@@ -1,0 +1,7 @@
+
+all:
+	jar cmf MANIFEST.MF StreamFinder.jar org -C bin . 
+	
+clean:
+	rm -R bin
+	rm $JAR_FILE
