@@ -12,5 +12,9 @@
 		<name>videopremium</name>
 		<url>http://videopremium.net</url>
 	</site>
+	<site>
+		<name>videobeer</name>
+		<url>http://videobeer.info</url>
+	</site>
 
 </sities>
