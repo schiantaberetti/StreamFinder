@@ -30,7 +30,6 @@ import javax.swing.event.ListSelectionListener;
 
 import core.Slave;
 
-
 /**
 * This code was edited or generated using CloudGarden's Jigloo
 * SWT/Swing GUI Builder, which is free for non-commercial
@@ -54,7 +53,7 @@ public class Gui extends javax.swing.JFrame {
 		}
 	}
 
-
+	final String version="1.2";
 	public static Gui istance=null;
 	private JTextField searchField;
 	private JButton searchButton;
@@ -86,7 +85,7 @@ public class Gui extends javax.swing.JFrame {
 	private Gui() {
 		super();
 		initGUI();
-		this.setTitle("StreamFinder v1.1");
+		this.setTitle("StreamFinder v"+version);
 		this.setResizable(false);
 		addFocusListener(new FocusListener() {
 			public void focusLost(FocusEvent arg0) {			}
@@ -121,8 +120,9 @@ public class Gui extends javax.swing.JFrame {
 					}
 					public void keyPressed(KeyEvent e) {
 						if(e.getID()!= KeyEvent.KEY_TYPED && e.getKeyCode()==10){
-							Slave.getIstance().sendMsg(searchField.getText());
 							searchButton.setEnabled(false);
+							resetLists();
+							Slave.getIstance().sendMsg(searchField.getText());
 						}
 					}
 				});
@@ -132,8 +132,9 @@ public class Gui extends javax.swing.JFrame {
 				searchButton.setText("Search");
 				searchButton.addActionListener(new ActionListener() {
 					public void actionPerformed(ActionEvent e) {
-						Slave.getIstance().sendMsg(searchField.getText());
 						searchButton.setEnabled(false);
+						resetLists();
+						Slave.getIstance().sendMsg(searchField.getText());
 					}
 				});
 			}
@@ -142,7 +143,7 @@ public class Gui extends javax.swing.JFrame {
 				infoButton.setText("Info");
 				infoButton.addActionListener(new ActionListener() {
 					public void actionPerformed(ActionEvent e) {
-						JOptionPane.showMessageDialog(null,"StreamFinder v1.1\nAuthor: baldo\nwww.schiantaberetti.com");
+						JOptionPane.showMessageDialog(null,"StreamFinder v"+version+"\nAuthor: baldo\nwww.schiantaberetti.com");
 					}
 				});
 			}
@@ -284,10 +285,32 @@ public class Gui extends javax.swing.JFrame {
 	public JList getSitesList() {
 		return sitesList;
 	}
+	public void resetLists() {
+		collectors = new ArrayList<model.LinkCollector>();
+		streamingHosts=new ArrayList<model.Link>();
+		showedLinks=new ArrayList<model.Link>();
+		sitesList.clearSelection();
+		linksPage.clearSelection();
+		setSites(new String[0]);
+		
+		ListModel emptyModel = 
+				new DefaultComboBoxModel(new String[0]);
+		sitesList.setModel(emptyModel);
+		linksPage.setModel(emptyModel);
+		
+		sitesList.
+		
+		
+		repaint();
+		hostSelect.repaint();
+		sitesList.repaint();
+		linksPage.repaint();
+	}
 	public void setSites(String[] s){
 		ListModel sitesListModel = 
 				new DefaultComboBoxModel(s);
 		sitesList.setModel(sitesListModel);
+		sitesList.setEnabled(true);
 	}
 	
 
